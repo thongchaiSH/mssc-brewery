@@ -83,4 +83,13 @@ class BeerControllerTest {
     }
 
 
+    @Test
+    void deleteBeer() throws Exception{
+        BeerDto beerDto=validBeer;
+
+        mockMvc.perform(delete("/api/v1/beer/"+beerDto.getId().toString()))
+                .andExpect(status().isNoContent());
+
+        then(beerService).should().deleteBeerById(any());
+    }
 }
