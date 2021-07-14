@@ -67,6 +67,8 @@ class BeerControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(beerDtoJson))
                 .andExpect(status().isCreated());
+
+        then(beerService).should().saveNewBeer(any());
     }
 
     @Test
