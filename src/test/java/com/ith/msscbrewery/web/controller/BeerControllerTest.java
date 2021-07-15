@@ -1,6 +1,5 @@
 package com.ith.msscbrewery.web.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ith.msscbrewery.web.model.BeerDto;
 import com.ith.msscbrewery.web.services.BeerService;
@@ -74,9 +73,10 @@ class BeerControllerTest {
     @Test
     void handleUpdate() throws Exception{
         BeerDto beerDto=validBeer;
+        beerDto.setId(null);
         String beerDtoJson=objectMapper.writeValueAsString(beerDto);
 
-        mockMvc.perform(put("/api/v1/beer/"+beerDto.getId().toString())
+        mockMvc.perform(put("/api/v1/beer/"+UUID.randomUUID().toString())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(beerDtoJson))
                 .andExpect(status().isNoContent());
