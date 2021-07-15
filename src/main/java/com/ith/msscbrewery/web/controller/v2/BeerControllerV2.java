@@ -6,8 +6,14 @@ import com.ith.msscbrewery.web.services.v2.BeerServiceV2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/api/v2/beer")
@@ -22,12 +28,12 @@ public class BeerControllerV2 {
     }
 
     @GetMapping({"/{beerId}"})
-    public ResponseEntity<BeerDtoV2> getBeer(@PathVariable UUID beerId){
+    public ResponseEntity<BeerDtoV2> getBeer(@NotNull @PathVariable UUID beerId){
         return new ResponseEntity<>(beerServiceV2.getBeerById(beerId), HttpStatus.OK);
     }
 
     @PostMapping //Post - create new beer
-    public ResponseEntity handlePost(BeerDtoV2 BeerDtoV2){
+    public ResponseEntity handlePost( @Valid @NotNull @RequestBody BeerDtoV2 BeerDtoV2){
         BeerDtoV2 saveDto=beerServiceV2.saveNewBeer(BeerDtoV2);
 
         HttpHeaders headers=new HttpHeaders();
@@ -38,7 +44,7 @@ public class BeerControllerV2 {
     }
 
     @PutMapping({"/{beerId}"})
-    public ResponseEntity handleUpdate(@PathVariable UUID beerId,@RequestBody BeerDtoV2 BeerDtoV2){
+    public ResponseEntity handleUpdate(@PathVariable UUID beerId,@Valid @RequestBody BeerDtoV2 BeerDtoV2){
 
         beerServiceV2.updateBeer(beerId,BeerDtoV2);
 
@@ -49,5 +55,17 @@ public class BeerControllerV2 {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBeer(@PathVariable UUID beerId){
         beerServiceV2.deleteBeerById(beerId);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<List> validateErrorHandler(MethodArgumentNotValidException e){
+
+        List<String> errors=new ArrayList<>(e.getBindingResult().getAllErrors().size());
+        e.getBindingResult().getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            errors.add(fieldName+" : "+error.getDefaultMessage());
+        });
+
+        return  new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
     }
 }
