@@ -1,6 +1,8 @@
 com/ith/msscbrewery/web/model/BeerDto.class
 com/ith/msscbrewery/web/controller/CustomerController.class
+com/ith/msscbrewery/web/mappers/BeerMapperImpl.class
 com/ith/msscbrewery/web/model/BeerDto$BeerDtoBuilder.class
+com/ith/msscbrewery/domain/Beer.class
 com/ith/msscbrewery/web/controller/MVCExceptionHandler.class
 com/ith/msscbrewery/web/controller/v2/BeerControllerV2.class
 com/ith/msscbrewery/web/model/CustomerDto.class
@@ -15,4 +17,6 @@ com/ith/msscbrewery/web/services/BeerServiceImpl.class
 com/ith/msscbrewery/web/services/CustomerService.class
 com/ith/msscbrewery/MsscBreweryApplication.class
 com/ith/msscbrewery/web/model/v2/BeerDtoV2.class
+com/ith/msscbrewery/web/mappers/BeerMapper.class
 com/ith/msscbrewery/web/services/CustomerServiceImpl.class
+com/ith/msscbrewery/domain/Beer$BeerBuilder.class
