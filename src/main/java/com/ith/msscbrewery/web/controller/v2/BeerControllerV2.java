@@ -6,14 +6,10 @@ import com.ith.msscbrewery.web.services.v2.BeerServiceV2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/api/v2/beer")
@@ -57,15 +53,4 @@ public class BeerControllerV2 {
         beerServiceV2.deleteBeerById(beerId);
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<List> validateErrorHandler(MethodArgumentNotValidException e){
-
-        List<String> errors=new ArrayList<>(e.getBindingResult().getAllErrors().size());
-        e.getBindingResult().getAllErrors().forEach(error -> {
-            String fieldName = ((FieldError) error).getField();
-            errors.add(fieldName+" : "+error.getDefaultMessage());
-        });
-
-        return  new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
-    }
 }
