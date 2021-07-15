@@ -2,6 +2,7 @@
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/domain/Beer.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/controller/BeerController.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/services/CustomerService.java
+/Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/domain/Customer.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/services/v2/BeerServiceV2Impl.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/model/BeerDto.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/mappers/BeerMapper.java
@@ -9,6 +10,7 @@
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/services/BeerService.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/model/CustomerDto.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/model/v2/BeerDtoV2.java
+/Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/mappers/CustomerMapper.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/services/v2/BeerServiceV2.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/web/model/v2/BeerStyleEnum.java
 /Users/Thongchai/MyProject/udemy-micro-service/mssc-brewery/src/main/java/com/ith/msscbrewery/MsscBreweryApplication.java
