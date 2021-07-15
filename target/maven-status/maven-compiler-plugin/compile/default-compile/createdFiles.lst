@@ -17,6 +17,7 @@ com/ith/msscbrewery/web/controller/MVCExceptionHandler.class
 com/ith/msscbrewery/web/controller/v2/BeerControllerV2.class
 com/ith/msscbrewery/web/model/CustomerDto.class
 com/ith/msscbrewery/web/controller/BeerController.class
+com/ith/msscbrewery/web/mappers/DateMapper.class
 com/ith/msscbrewery/web/services/v2/BeerServiceV2Impl.class
 com/ith/msscbrewery/web/mappers/CustomerMapper.class
 com/ith/msscbrewery/domain/Customer.class
